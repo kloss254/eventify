@@ -1,0 +1,16 @@
+{% extends 'events/base.html' %}
+{% block content %}
+<section class="section" style="text-align:center; padding:80px 40px;">
+  <h2>Sign Up</h2>
+  <form method="POST" style="max-width:400px; margin:auto; display:flex; flex-direction:column; gap:15px;">
+    {% csrf_token %}
+    {{ form.username }}
+    {{ form.email }}
+    {{ form.password1 }}
+    {{ form.password2 }}
+    <label>{{ form.is_organizer }} Sign up as Organizer</label>
+    <button type="submit" class="btn">Sign Up</button>
+  </form>
+  <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+</section>
+{% endblock %}
